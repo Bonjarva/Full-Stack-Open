@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    participant browser
+    participant server
+
+    Note right of browser: User enters new note into form
+    Note right of browser: User clicks save button
+
+    Note right of browser: onsubmit event handler called
+    Note right of browser: Creates new note Object
+    Note right of browser: Adds note to local notes list
+    Note right of browser: Rerenders local notes list
+
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    Note right of browser: Note object as JSON is sent with the POST request
+    Note right of server: Append new note object to notes array
+    server-->>browser: Status Code 201 (Created)
+    deactivate server
